@@ -2,8 +2,10 @@ drop table Card IF EXISTS;
 
 create TABLE Card (
   id BIGINT IDENTITY PRIMARY KEY,
-  card_number BIGINT not null,
-  card_password INTEGER not null,
-  balance DECIMAL
+  card_number VARCHAR(20) not null unique,
+  card_password VARCHAR(100) not null,
+  balance DECIMAL not null,
+  card_role    VARCHAR(20) DEFAULT 'USER',
+  status    VARCHAR(20) DEFAULT 'ACTIVE'
 );
 

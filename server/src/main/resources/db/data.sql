@@ -1,6 +1,6 @@
-INSERT INTO Card VALUES (1, 12345678, 1234, 0);
-INSERT INTO Card VALUES (2, 12345242, 1456, 100);
-INSERT INTO Card VALUES (3, 45224528, 7854, 200.25);
-INSERT INTO Card VALUES (4, 17858778, 9654, 3000.50);
-INSERT INTO Card VALUES (5, 78861357, 3641, 4000.11);
+insert into card values (1, '12345678', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 10,'USER', 'ACTIVE');
+insert into card values (2, '12345242', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 100,'USER', 'ACTIVE');
+insert into card values (3, '45224528', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 200.25,'USER', 'ACTIVE');
+insert into card values (4, '17858778', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 3000.50,'USER', 'ACTIVE');
+insert into card values (5, '78861357', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 4000.11,'USER', 'ACTIVE');
 
