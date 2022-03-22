@@ -1,6 +1,6 @@
-drop table Card IF EXISTS;
+drop table card IF EXISTS;
 
-create TABLE Card (
+create TABLE card (
   id BIGINT IDENTITY PRIMARY KEY,
   card_number VARCHAR(20) not null unique,
   card_password VARCHAR(100) not null,
