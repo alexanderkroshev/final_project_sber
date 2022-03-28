@@ -1,1 +1,9 @@
 target/
+.idea
+compiler.xml
+dbnavigator.xml
+encodings.xml
+jarRepositories.xml
+misc.xml
+uiDesigner.xml
+vcs.xml
