@@ -1,6 +1,7 @@
 package client.controller;
 
 import client.dto.BalanceDTO;
+import client.service.CardServiceApi;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,16 +16,11 @@ import java.net.URISyntaxException;
 @AllArgsConstructor
 public class ATMController {
 
+ private CardServiceApi service;
 
     @GetMapping("/balance/{id}")
     public BalanceDTO getBalance(@PathVariable Long id) {
-        RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8080/card/" + id;
-        try {
-            return restTemplate.getForObject(new URI(url), BalanceDTO.class);
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
+        return service.getBalance(id);
     }
 }
 
