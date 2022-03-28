@@ -2,8 +2,8 @@ package server.model;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import server.Role;
-import server.Status;
+import server.auth.Role;
+import server.auth.Status;
 
 import java.math.BigDecimal;
 
