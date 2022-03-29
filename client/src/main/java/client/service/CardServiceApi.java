@@ -19,8 +19,8 @@ import java.util.Objects;
 public class CardServiceApi {
 
     private final RestTemplate restTemplate;
-    private final String AUTHORIZATION_URL = "http://localhost:8083/api/v1/auth/login";
-    private final String BALANCE_URL = "http://localhost:8083/card/balance";
+    private final String AUTHORIZATION_URL = "http://localhost:8080/api/v1/auth/login";
+    private final String BALANCE_URL = "http://localhost:8080/card/balance";
 
     @GetMapping("/balance/{number}/{password}")
     public BalanceDTO getBalance(@PathVariable String number, @PathVariable String password) {
