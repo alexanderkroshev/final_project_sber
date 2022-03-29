@@ -1,4 +1,4 @@
-package client.controller;
+package client.auth;
 
 import lombok.Getter;
 import lombok.Setter;
