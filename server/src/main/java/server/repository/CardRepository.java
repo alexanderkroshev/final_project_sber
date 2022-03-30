@@ -16,18 +16,9 @@ public class CardRepository {
 
     private JdbcTemplate jdbcTemplate;
 
-    public BalanceDto findBalanceById(Long id) {
-        return jdbcTemplate.queryForObject(
-                "select balance from card where id=?", this::mapRowToBalance, id);
-    }
-
     public Card findByCardNumber(String cardNumber) {
         return jdbcTemplate.queryForObject(
                 "select * from card where card_number=?", this::mapRowToCard, cardNumber);
-    }
-
-    private BalanceDto mapRowToBalance(ResultSet rs, int rowNum) throws SQLException {
-        return new BalanceDto(rs.getBigDecimal("balance"));
     }
 
     private Card mapRowToCard(ResultSet rs, int rowNum) throws SQLException {

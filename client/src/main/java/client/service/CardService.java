@@ -1,8 +1,6 @@
 package client.service;
 
 import client.auth.ResponseToken;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import common.AuthenticationRequestDto;
 import common.BalanceDto;
 import lombok.RequiredArgsConstructor;
@@ -39,22 +37,11 @@ public class CardService {
     private ResponseEntity<ResponseToken> getAuthResponse(String cardNumber, String cardPassword) {
         AuthenticationRequestDto authentication = new AuthenticationRequestDto(
                 cardNumber, cardPassword);
-        String authenticationBody = getBody(authentication);
         HttpHeaders authenticationHeaders = getHeaders();
-        HttpEntity<String> authenticationEntity = new HttpEntity<>(authenticationBody,
+        HttpEntity<AuthenticationRequestDto> authenticationEntity = new HttpEntity<>(authentication,
                 authenticationHeaders);
         return restTemplate.exchange(AUTHORIZATION_URL,
                 HttpMethod.POST, authenticationEntity, ResponseToken.class);
-    }
-
-    private String getBody(AuthenticationRequestDto authentication) {
-        String body;
-        try {
-            body = new ObjectMapper().writeValueAsString(authentication);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-        return body;
     }
 
     private HttpHeaders getHeaders() {
