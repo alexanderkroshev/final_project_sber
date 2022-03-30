@@ -1,8 +1,8 @@
 package server.service;
 
+import common.BalanceDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import server.dto.BalanceDTO;
 import server.model.Card;
 import server.repository.CardRepository;
 
@@ -13,11 +13,7 @@ public class CardService {
 
     private final CardRepository cardRepository;
 
-    public BalanceDTO findBalanceById(Long id)  {
-        return cardRepository.findBalanceById(id);
-    }
-
     public Card findByCardNumber(String cardNumber) {
-        return cardRepository.findCardByCardNumber(cardNumber);
+        return cardRepository.findByCardNumber(cardNumber);
     }
 }

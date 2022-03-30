@@ -1,13 +1,12 @@
 package server.repository;
 
+import common.BalanceDto;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import server.auth.Role;
 import server.auth.Status;
-import server.dto.BalanceDTO;
 import server.model.Card;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -17,18 +16,18 @@ public class CardRepository {
 
     private JdbcTemplate jdbcTemplate;
 
-    public BalanceDTO findBalanceById(Long id) {
+    public BalanceDto findBalanceById(Long id) {
         return jdbcTemplate.queryForObject(
                 "select balance from card where id=?", this::mapRowToBalance, id);
     }
 
-    public Card findCardByCardNumber(String cardNumber) {
+    public Card findByCardNumber(String cardNumber) {
         return jdbcTemplate.queryForObject(
                 "select * from card where card_number=?", this::mapRowToCard, cardNumber);
     }
 
-    private BalanceDTO mapRowToBalance(ResultSet rs, int rowNum) throws SQLException {
-        return new BalanceDTO(rs.getBigDecimal("balance"));
+    private BalanceDto mapRowToBalance(ResultSet rs, int rowNum) throws SQLException {
+        return new BalanceDto(rs.getBigDecimal("balance"));
     }
 
     private Card mapRowToCard(ResultSet rs, int rowNum) throws SQLException {
@@ -40,5 +39,4 @@ public class CardRepository {
                 Status.valueOf(rs.getString("status"))
         );
     }
-
 }

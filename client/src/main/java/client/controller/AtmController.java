@@ -1,7 +1,7 @@
 package client.controller;
 
-import client.dto.BalanceDTO;
-import client.service.CardServiceApi;
+import client.service.CardService;
+import common.BalanceDto;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/card")
-public class ATMController {
-
-    private final CardServiceApi cardService;
+public class AtmController {
+    private final CardService cardService;
 
     @GetMapping("/balance/{number}/{password}")
-    public BalanceDTO getBalance(@PathVariable String number, @PathVariable String password) {
+    public BalanceDto getBalance(@PathVariable String number, @PathVariable String password) {
         return cardService.getBalance(number, password);
     }
 }

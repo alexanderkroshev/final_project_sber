@@ -2,7 +2,6 @@ package server.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import server.auth.Role;
 import server.auth.Status;
 

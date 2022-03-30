@@ -13,7 +13,7 @@ class CardRepositoryTest {
 
     @Test
     void findCardById() {
-        Card card = cardRepository.findCardByCardNumber("12345242");
+        Card card = cardRepository.findByCardNumber("12345242");
         long id = card.getId();
         Assertions.assertEquals(id, 2);
     }

@@ -1,5 +1,6 @@
 package server.auth.rest;
 
+import common.AuthenticationRequestDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,26 +22,26 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/auth")
-public class AuthenticationRestControllerV1 {
+public class AuthenticationController {
 
     private final AuthenticationManager authenticationManager;
     private CardRepository userRepository;
     private JwtTokenProvider jwtTokenProvider;
 
-    public AuthenticationRestControllerV1(AuthenticationManager authenticationManager, CardRepository userRepository, JwtTokenProvider jwtTokenProvider) {
+    public AuthenticationController(AuthenticationManager authenticationManager, CardRepository userRepository, JwtTokenProvider jwtTokenProvider) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
         this.jwtTokenProvider = jwtTokenProvider;
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> authenticate(@RequestBody AuthenticationRequestDTO request) {
+    public ResponseEntity<?> authenticate(@RequestBody AuthenticationRequestDto authentication) {
         try {
-            Card card = userRepository.findCardByCardNumber(request.getCardNumber());
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getCardNumber(), request.getCardPassword()));
-            String token = jwtTokenProvider.createToken(request.getCardNumber(), card.getCardRole().name());
+            Card card = userRepository.findByCardNumber(authentication.getCardNumber());
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authentication.getCardNumber(), authentication.getCardPassword()));
+            String token = jwtTokenProvider.createToken(authentication.getCardNumber(), card.getCardRole().name());
             Map<Object, Object> response = new HashMap<>();
-            response.put("cardNumber", request.getCardNumber());
+            response.put("cardNumber", authentication.getCardNumber());
             response.put("token", token);
             return ResponseEntity.ok(response);
         } catch (AuthenticationException e) {
