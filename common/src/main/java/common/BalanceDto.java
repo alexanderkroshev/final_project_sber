@@ -10,5 +10,5 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BalanceDto {
-    private  BigDecimal balance;
+    private BigDecimal balance;
 }

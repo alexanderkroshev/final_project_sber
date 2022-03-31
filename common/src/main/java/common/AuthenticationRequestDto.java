@@ -2,12 +2,10 @@ package common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
-@RequiredArgsConstructor
-
+@AllArgsConstructor
 public class AuthenticationRequestDto {
-    private final String cardNumber;
-    private final String cardPassword;
+    private String cardNumber;
+    private String cardPassword;
 }
