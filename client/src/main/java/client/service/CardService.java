@@ -3,6 +3,7 @@ package client.service;
 import client.auth.ResponseToken;
 import common.AuthenticationRequestDto;
 import common.BalanceDto;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -11,10 +12,10 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Objects;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class CardService {
 
-    private final RestTemplate restTemplate;
+    private RestTemplate restTemplate;
     private final String AUTHORIZATION_URL = "http://localhost:8080/api/v1/auth/login";
     private final String BALANCE_URL = "http://localhost:8080/card/balance";
 

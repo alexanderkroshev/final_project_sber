@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 @RequestMapping("/card")
 public class AtmController {
-    private final CardService cardService;
+    private CardService cardService;
 
     @GetMapping("/balance/{number}/{password}")
     public BalanceDto getBalance(@PathVariable String number, @PathVariable String password) {
