@@ -13,7 +13,6 @@ import java.sql.SQLException;
 @Repository
 @AllArgsConstructor
 public class CardRepository {
-
     private JdbcTemplate jdbcTemplate;
 
     public Card findByCardNumber(String cardNumber) {

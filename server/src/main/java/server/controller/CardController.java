@@ -14,7 +14,6 @@ import server.service.CardService;
 @AllArgsConstructor
 @RequestMapping("/card")
 public class CardController {
-
     private CardService cardService;
 
     @GetMapping("/balance")

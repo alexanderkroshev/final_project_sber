@@ -1,6 +1,7 @@
 package server.auth.rest;
 
 import common.AuthenticationRequestDto;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,17 +23,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/auth")
+@AllArgsConstructor
 public class AuthenticationController {
-
-    private final AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager;
     private CardRepository userRepository;
     private JwtTokenProvider jwtTokenProvider;
-
-    public AuthenticationController(AuthenticationManager authenticationManager, CardRepository userRepository, JwtTokenProvider jwtTokenProvider) {
-        this.authenticationManager = authenticationManager;
-        this.userRepository = userRepository;
-        this.jwtTokenProvider = jwtTokenProvider;
-    }
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticate(@RequestBody AuthenticationRequestDto authentication) {

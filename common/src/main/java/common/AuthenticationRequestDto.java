@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
+
 public class AuthenticationRequestDto {
     private final String cardNumber;
     private final String cardPassword;

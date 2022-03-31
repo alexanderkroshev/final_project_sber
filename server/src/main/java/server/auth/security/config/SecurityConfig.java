@@ -1,6 +1,6 @@
 package server.auth.security.config;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,10 +16,9 @@ import server.auth.config.JwtConfigurer;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    private final JwtConfigurer jwtConfigurer;
+    private JwtConfigurer jwtConfigurer;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
