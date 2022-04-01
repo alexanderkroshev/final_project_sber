@@ -1,4 +1,4 @@
-package server.auth.config;
+package server.auth.jwt;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;

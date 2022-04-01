@@ -1,4 +1,4 @@
-package server.auth.config;
+package server.auth.jwt;
 
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Qualifier;

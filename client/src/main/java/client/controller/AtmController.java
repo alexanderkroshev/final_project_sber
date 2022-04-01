@@ -15,15 +15,5 @@ public class AtmController {
     public BalanceDto getBalance() {
         return cardService.getBalance();
     }
-
-    @PostMapping("/login/{number}/{password}")
-    public void login(@PathVariable String number,@PathVariable String password) {
-        cardService.login(number, password);
-    }
-
-    @GetMapping("/logout")
-    public void logout() {
-        cardService.logout();
-    }
 }
 

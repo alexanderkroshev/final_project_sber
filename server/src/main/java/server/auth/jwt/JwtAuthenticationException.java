@@ -1,4 +1,4 @@
-package server.auth.config;
+package server.auth.jwt;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

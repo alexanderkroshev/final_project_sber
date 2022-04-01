@@ -1,5 +1,6 @@
 package client.service;
 
+import client.exception.BalanceNotFoundException;
 import client.savetoken.TokenProvider;
 import common.BalanceDto;
 import lombok.AllArgsConstructor;
@@ -10,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class CardService {
@@ -18,14 +21,14 @@ public class CardService {
     private final String BALANCE_URL = "http://localhost:8080/card/balance";
 
     public BalanceDto getBalance() {
-        BalanceDto balanceDto = null;
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", tokenProvider.getToken());
         HttpEntity<String> jwtEntity = new HttpEntity<>(headers);
         ResponseEntity<BalanceDto> balanceResponse = restTemplate.exchange(BALANCE_URL,
                 HttpMethod.GET, jwtEntity, BalanceDto.class);
-        balanceDto = balanceResponse.getBody();
-        return balanceDto;
+        BalanceDto balanceDto = balanceResponse.getBody();
+        return Optional.ofNullable(balanceDto).
+                orElseThrow(BalanceNotFoundException::new);
     }
 
     public void login(String number, String password) {
