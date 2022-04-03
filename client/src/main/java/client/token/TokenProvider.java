@@ -1,13 +1,10 @@
-package client.savetoken;
+package client.token;
 
-import client.auth.ResponseToken;
 import client.exception.AuthorizationException;
 import client.exception.TokenNotFoundException;
 import common.AuthenticationRequestDto;
 import lombok.Data;
 import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
-import org.apache.log4j.Logger;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -16,14 +13,13 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
 
-@Data
 @Log
+@Data
 public class TokenProvider {
     private final RestTemplate restTemplate;
     private String token;
     private final String AUTHORIZATION_URL = "http://localhost:8080/api/v1/auth/login";
     private final String LOGOUT_URL = "http://localhost:8080/api/v1/auth/logout";
-
 
     public String getToken() {
         return Optional.ofNullable(token).
@@ -37,9 +33,9 @@ public class TokenProvider {
             HttpHeaders authenticationHeaders = new HttpHeaders();
             HttpEntity<AuthenticationRequestDto> authEntity = new HttpEntity<>(authentication,
                     authenticationHeaders);
-            ResponseEntity<ResponseToken> response = restTemplate.exchange(AUTHORIZATION_URL,
-                    HttpMethod.POST, authEntity, ResponseToken.class);
-            token = response.getBody().getToken();//Optional.ofNullable(response.getBody()
+            ResponseEntity<TokenDto> response = restTemplate.exchange(AUTHORIZATION_URL,
+                    HttpMethod.POST, authEntity, TokenDto.class);
+            token = response.getBody().getToken();
         } catch (Exception e) {
             log.info("Incorrect login/password");
             throw new AuthorizationException("Incorrect login/password");

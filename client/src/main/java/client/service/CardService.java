@@ -1,7 +1,7 @@
 package client.service;
 
 import client.exception.BalanceNotFoundException;
-import client.savetoken.TokenProvider;
+import client.token.TokenProvider;
 import common.BalanceDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpEntity;
@@ -30,12 +30,5 @@ public class CardService {
         return Optional.ofNullable(balanceDto).
                 orElseThrow(BalanceNotFoundException::new);
     }
-
-    public void login(String number, String password) {
-        tokenProvider.login(number, password);
-    }
-
-    public void logout() {
-        tokenProvider.logout();
-    }
 }
+

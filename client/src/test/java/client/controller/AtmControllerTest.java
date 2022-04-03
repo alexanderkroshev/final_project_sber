@@ -15,12 +15,17 @@ class AtmControllerTest {
     @Autowired
     private AtmController atmController;
 
-//    @Test
-//    void getBalance() {
-//        BalanceDto balance = atmController.getBalance("12345242", "1111");
-//        BigDecimal bigDecimal = balance.getBalance();
-//        BigDecimal bigDecimal2 = new BigDecimal("100");
-//
-//        Assertions.assertEquals(bigDecimal, bigDecimal2);
-//    }
+    @Autowired
+    private AuthController authController;
+
+
+    @Test
+    void getBalance() {
+        authController.login("12345678", "1111");
+        BalanceDto balance = atmController.getBalance();
+        BigDecimal bigDecimal = balance.getBalance();
+        BigDecimal bigDecimal2 = new BigDecimal("10");
+
+        Assertions.assertEquals(bigDecimal, bigDecimal2);
+    }
 }
