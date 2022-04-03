@@ -1,6 +1,7 @@
 package server.controller;
 
 import common.AuthenticationRequestDto;
+import common.TokenDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,9 @@ class AuthenticationControllerTest {
     void login() {
         AuthenticationRequestDto authDto = new AuthenticationRequestDto(
                 "12345678", "1111");
-        ResponseEntity<?> response = authController.login(authDto);
+        ResponseEntity<TokenDto> response = authController.login(authDto);
 
-        Assertions.assertNotNull(response.getBody()!=null);
+       //Assertions.assertTrue();
 
 
     }

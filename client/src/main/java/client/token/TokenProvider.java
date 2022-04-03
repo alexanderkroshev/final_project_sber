@@ -3,6 +3,7 @@ package client.token;
 import client.exception.AuthorizationException;
 import client.exception.TokenNotFoundException;
 import common.AuthenticationRequestDto;
+import common.TokenDto;
 import lombok.Data;
 import lombok.extern.java.Log;
 import org.springframework.http.HttpEntity;
