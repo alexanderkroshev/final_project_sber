@@ -5,17 +5,19 @@ import client.exception.TokenNotFoundException;
 import common.AuthenticationRequestDto;
 import common.TokenDto;
 import lombok.Data;
-import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
 
-@Log
+@Slf4j
 @Data
+@Component
 public class TokenProvider {
     private final RestTemplate restTemplate;
     private String token;
@@ -30,23 +32,26 @@ public class TokenProvider {
     public void login(String number, String password) {
         try {
             AuthenticationRequestDto authentication = new AuthenticationRequestDto(
-                    number, password);
-            HttpHeaders authenticationHeaders = new HttpHeaders();
-            HttpEntity<AuthenticationRequestDto> authEntity = new HttpEntity<>(authentication,
-                    authenticationHeaders);
+                    number, password
+            );
+            HttpHeaders headers = new HttpHeaders();
+            HttpEntity<AuthenticationRequestDto> authEntity = new HttpEntity<>(
+                    authentication, headers
+            );
             ResponseEntity<TokenDto> response = restTemplate.exchange(AUTHORIZATION_URL,
                     HttpMethod.POST, authEntity, TokenDto.class);
             token = response.getBody().getToken();
         } catch (Exception e) {
-            log.info("Incorrect login/password");
-            throw new AuthorizationException("Incorrect login/password");
+            String msg = "Error while login with card number: " + number;
+            log.info(msg);
+            throw new AuthorizationException(msg, e);
         }
     }
 
     public void logout() {
-        HttpHeaders logoutHeaders = new HttpHeaders();
-        logoutHeaders.set("Authorization", token);
-        HttpEntity<?> logoutEntity = new HttpEntity<>(logoutHeaders);
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", token);
+        HttpEntity<?> logoutEntity = new HttpEntity<>(headers);
         restTemplate.postForObject(LOGOUT_URL, logoutEntity, Void.class);
         token = null;
     }

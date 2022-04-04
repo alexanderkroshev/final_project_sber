@@ -17,7 +17,7 @@ public class CardDetailServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String cardNumber) throws UsernameNotFoundException {
         Card card = cardService.findByCardNumber(cardNumber);
-        return SecurityCard.fromCard(card);
+        return CardDetails.fromCard(card);
     }
 }
 

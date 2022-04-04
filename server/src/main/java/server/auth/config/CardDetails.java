@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Data
-public class SecurityCard implements UserDetails {
+public class CardDetails implements UserDetails {
 
     private final String cardNumber;
     private final String password;
@@ -57,7 +57,8 @@ public class SecurityCard implements UserDetails {
 
     public static UserDetails fromCard(Card card) {
         return new User(
-                card.getCardNumber(), card.getCardPassword(),
+                card.getCardNumber(),
+                card.getCardPassword(),
                 card.getStatus().equals(Status.ACTIVE),
                 card.getStatus().equals(Status.ACTIVE),
                 card.getStatus().equals(Status.ACTIVE),
