@@ -3,7 +3,6 @@ package client.service;
 import client.token.TokenProvider;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 @AllArgsConstructor

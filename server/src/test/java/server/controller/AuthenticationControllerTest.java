@@ -14,11 +14,11 @@ class AuthenticationControllerTest {
 
     @Test
     void login() {
-        AuthenticationRequestDto authDto = new AuthenticationRequestDto(
-                "12345678", "1111");
-        ResponseEntity<TokenDto> response = authController.login(authDto);
-
-       //Assertions.assertTrue();
+//        AuthenticationRequestDto authDto = new AuthenticationRequestDto(
+//                "12345678", "1111");
+//        ResponseEntity<TokenDto> response = authController.login(authDto);
+//
+//       //Assertions.assertTrue();
 
 
     }
