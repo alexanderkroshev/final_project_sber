@@ -4,23 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequestDto  {
+public class AuthenticationRequestDto {
     private String login;
     private String password;
-
-//    @Override
-//    public String getLogin() {
-//        return null;
-//    }
-//
-//    @Override
-//    public String getPassword() {
-//        return null;
-//    }
 }
+
+
+
+
 
 //TODO
 //{

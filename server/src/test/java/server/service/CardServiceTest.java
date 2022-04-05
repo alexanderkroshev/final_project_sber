@@ -6,8 +6,12 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import server.auth.Role;
+import server.auth.Status;
 import server.model.Card;
 import server.repository.CardRepository;
+
+import java.math.BigDecimal;
 
 @SpringBootTest
 class CardServiceTest {
@@ -17,9 +21,15 @@ class CardServiceTest {
 
     @Test
     void findByCardNumber() {
-        Card card1 = new Card();
-        card1.setId(2L);
-        card1.setLogin("12345242");
+        Card card1 = new Card(
+                2L,
+                "12345242",
+                "1111",
+                new BigDecimal(100),
+                Role.USER,
+                Status.ACTIVE
+        );
+
         Mockito.when(cardRepository.findByCardNumber("12345242")).thenReturn(card1);
         Card card2 = cardRepository.findByCardNumber("12345242");
 

@@ -1,7 +1,6 @@
-package common;
+package server.model;
 
 public interface Auth {
-
 
     String getLogin();
 

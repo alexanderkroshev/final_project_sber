@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
+import server.auth.Role;
+import server.auth.Status;
 import server.model.Card;
 import server.service.CardService;
 
@@ -18,10 +20,14 @@ class CardControllerTest {
 
     @Test
     void getBalance() {
-        Card card1 = new Card();
-        card1.setId(2L);
-        card1.setLogin("12345242");
-        card1.setBalance(new BigDecimal(100));
+        Card card1 = new Card(
+                2L,
+                "12345242",
+                "1111",
+                new BigDecimal(100),
+                Role.USER,
+                Status.ACTIVE
+        );
 
         Mockito.when(cardService.findByCardNumber("12345242")).thenReturn(card1);
         BigDecimal bigDecimal = cardService.findByCardNumber("12345242").getBalance();

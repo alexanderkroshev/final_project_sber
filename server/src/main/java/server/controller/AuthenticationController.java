@@ -1,6 +1,5 @@
 package server.controller;
 
-import common.Auth;
 import common.AuthenticationRequestDto;
 import common.TokenDto;
 import lombok.AllArgsConstructor;
@@ -31,6 +30,8 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     public ResponseEntity<TokenDto> login(@RequestBody AuthenticationRequestDto authDto) {
+       String login  = authDto.getLogin();
+       String password  = authDto.getPassword();
         try {
             Card card = cardRepository.findByCardNumber(authDto.getLogin());
             authManager.authenticate(
