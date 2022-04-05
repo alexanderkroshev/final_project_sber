@@ -1,4 +1,4 @@
-package server.auth.authDto;
+package common;
 
 import lombok.RequiredArgsConstructor;
 

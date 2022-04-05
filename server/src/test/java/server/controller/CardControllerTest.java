@@ -20,7 +20,7 @@ class CardControllerTest {
     void getBalance() {
         Card card1 = new Card();
         card1.setId(2L);
-        card1.setCardNumber("12345242");
+        card1.setLogin("12345242");
         card1.setBalance(new BigDecimal(100));
 
         Mockito.when(cardService.findByCardNumber("12345242")).thenReturn(card1);

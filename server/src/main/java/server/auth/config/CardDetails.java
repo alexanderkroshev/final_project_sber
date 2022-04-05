@@ -57,8 +57,8 @@ public class CardDetails implements UserDetails {
 
     public static UserDetails fromCard(Card card) {
         return new User(
-                card.getCardNumber(),
-                card.getCardPassword(),
+                card.getLogin(),
+                card.getPassword(),
                 card.getStatus().equals(Status.ACTIVE),
                 card.getStatus().equals(Status.ACTIVE),
                 card.getStatus().equals(Status.ACTIVE),

@@ -13,7 +13,7 @@ public class CardRepository {
 
     public Card findByCardNumber(String cardNumber) {
         return jdbcTemplate.queryForObject(
-                "select * from card where card_number=?",
+                "select * from card where login=?",
                 new BeanPropertyRowMapper<>(Card.class),
                 cardNumber);
     }

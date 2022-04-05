@@ -19,10 +19,10 @@ class CardServiceTest {
     void findByCardNumber() {
         Card card1 = new Card();
         card1.setId(2L);
-        card1.setCardNumber("12345242");
+        card1.setLogin("12345242");
         Mockito.when(cardRepository.findByCardNumber("12345242")).thenReturn(card1);
         Card card2 = cardRepository.findByCardNumber("12345242");
 
-        Assertions.assertEquals(card1.getCardNumber(), card2.getCardNumber());
+        Assertions.assertEquals(card1.getLogin(), card2.getLogin());
     }
 }

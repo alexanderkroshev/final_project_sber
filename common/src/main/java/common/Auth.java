@@ -1,6 +1,7 @@
-package server.auth.authDto;
+package common;
 
 public interface Auth {
+
 
     String getLogin();
 

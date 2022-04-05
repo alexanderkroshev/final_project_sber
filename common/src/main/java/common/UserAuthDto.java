@@ -1,10 +1,9 @@
-package server.auth.authDto;
+package common;
 
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 final class UserAuthDto implements Auth {
-
     private final String user;
     private final String password;
 

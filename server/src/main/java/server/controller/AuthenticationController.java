@@ -1,5 +1,6 @@
 package server.controller;
 
+import common.Auth;
 import common.AuthenticationRequestDto;
 import common.TokenDto;
 import lombok.AllArgsConstructor;
@@ -31,14 +32,14 @@ public class AuthenticationController {
     @PostMapping("/login")
     public ResponseEntity<TokenDto> login(@RequestBody AuthenticationRequestDto authDto) {
         try {
-            Card card = cardRepository.findByCardNumber(authDto.getCardNumber());
+            Card card = cardRepository.findByCardNumber(authDto.getLogin());
             authManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authDto.getCardNumber(), authDto.getCardPassword())
+                    new UsernamePasswordAuthenticationToken(authDto.getLogin(), authDto.getPassword())
             );
-            String token = jwtTokenProvider.createToken(authDto.getCardNumber(), card.getCardRole().name());
+            String token = jwtTokenProvider.createToken(authDto.getLogin(), card.getCardRole().name());
             return ResponseEntity.ok(new TokenDto(token));
         } catch (Exception e) {
-            String msg = "auth failed for card: " + authDto.getCardNumber();
+            String msg = "auth failed for user: " + authDto.getLogin();
             log.info(msg);
             throw new RuntimeException(msg); //TODO custom exception
         }
