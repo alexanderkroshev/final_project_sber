@@ -11,7 +11,7 @@ import server.repository.CardRepository;
 public class CardService {
     private CardRepository cardRepository;
 
-    public Card findByCardNumber(String cardNumber) {
-        return cardRepository.findByCardNumber(cardNumber);
+    public Card findByLogin(String cardNumber) {
+        return cardRepository.findByLogin(cardNumber);
     }
 }

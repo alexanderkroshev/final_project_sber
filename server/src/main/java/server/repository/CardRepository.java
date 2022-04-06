@@ -11,7 +11,7 @@ import server.model.Card;
 public class CardRepository {
     private JdbcTemplate jdbcTemplate;
 
-    public Card findByCardNumber(String cardNumber) {
+    public Card findByLogin(String cardNumber) {
         return jdbcTemplate.queryForObject(
                 "select * from card where card_number=?",
                 new BeanPropertyRowMapper<>(Card.class),

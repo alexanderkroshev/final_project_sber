@@ -20,6 +20,6 @@ public class CardController {
     @PreAuthorize("hasAuthority('developers:read')")
     public BalanceDto getBalance() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return new BalanceDto(cardService.findByCardNumber(authentication.getName()).getBalance());
+        return new BalanceDto(cardService.findByLogin(authentication.getName()).getBalance());
     }
 }

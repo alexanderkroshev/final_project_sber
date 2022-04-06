@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
+
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Base64;
@@ -17,7 +18,6 @@ import java.util.Date;
 
 @Component
 public class JwtTokenProvider {
-
     private UserDetailsService userDetailsService;
 
     @Value("${jwt.secret}")

@@ -1,16 +1,12 @@
 package server.controller;
 
-import common.AuthenticationRequestDto;
-import common.TokenDto;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 
 class AuthenticationControllerTest {
 
     @Autowired
-    private AuthenticationController authController;
+    private AuthController authController;
 
     @Test
     void login() {

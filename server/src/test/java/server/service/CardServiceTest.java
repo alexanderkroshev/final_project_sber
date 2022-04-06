@@ -31,8 +31,8 @@ class CardServiceTest {
                 Status.ACTIVE
         );
 
-        Mockito.when(cardRepository.findByCardNumber("12345242")).thenReturn(card1);
-        Card card2 = cardRepository.findByCardNumber("12345242");
+        Mockito.when(cardRepository.findByLogin("12345242")).thenReturn(card1);
+        Card card2 = cardRepository.findByLogin("12345242");
 
         Assertions.assertEquals(card1.getLogin(), card2.getLogin());
     }

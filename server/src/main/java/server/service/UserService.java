@@ -10,7 +10,7 @@ import server.repository.UserRepository;
 public class UserService {
     private UserRepository userRepository;
 
-    public User findUserByCardId(Long id) {
-        return userRepository.findUserByCardId(id);
+    public User findByLogin(String login) {
+        return userRepository.findByLogin(login);
     }
 }

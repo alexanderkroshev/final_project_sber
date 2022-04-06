@@ -1,7 +1,7 @@
-insert into user values (1, 'Bob_1', '1111', 'Boris', 'Alexeev', 'USER', 'ACTIVE');
-insert into user values (2, 'Vova_2', '1111', 'Vova', 'Petrov', 'USER', 'ACTIVE');
-insert into user values (3, 'Vova_3', '1111', 'Tom', 'Cat', 'USER', 'ACTIVE');
-insert into user values (4, 'Igor_4', '1111', 'Igor', 'Vasilev', 'ADMIN', 'ACTIVE');
+insert into user values (1, 'Bob_1', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 'Boris', 'Alexeev', 'USER', 'ACTIVE');
+insert into user values (2, 'Vova_2', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 'Vova', 'Petrov', 'USER', 'ACTIVE');
+insert into user values (3, 'Vova_3', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 'Tom', 'Cat', 'USER', 'ACTIVE');
+insert into user values (4, 'Igor_4', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 'Igor', 'Vasilev', 'ADMIN', 'ACTIVE');
 
 
 insert into card values (1, '12345678', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 10, 1, 'ACTIVE');

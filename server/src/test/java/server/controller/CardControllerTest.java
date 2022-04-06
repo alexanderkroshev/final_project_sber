@@ -30,8 +30,8 @@ class CardControllerTest {
                 Status.ACTIVE
         );
 
-        Mockito.when(cardService.findByCardNumber("12345242")).thenReturn(card1);
-        BigDecimal bigDecimal = cardService.findByCardNumber("12345242").getBalance();
+        Mockito.when(cardService.findByLogin("12345242")).thenReturn(card1);
+        BigDecimal bigDecimal = cardService.findByLogin("12345242").getBalance();
 
         Assertions.assertEquals(bigDecimal, card1.getBalance());
     }

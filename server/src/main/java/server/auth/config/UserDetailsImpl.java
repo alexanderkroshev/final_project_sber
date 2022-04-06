@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Data
-public class CardDetails implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
     private final String cardNumber;
     private final String password;
     private final List<SimpleGrantedAuthority> authorities;
@@ -54,15 +54,15 @@ public class CardDetails implements UserDetails {
         return isActive;
     }
 
-    public static UserDetails fromCard(BasicModel card) {
+    public static UserDetails fromBasicModel(BasicModel model) {
         return new User(
-                card.getLogin(),
-                card.getPassword(),
-                card.getStatus().equals(Status.ACTIVE),
-                card.getStatus().equals(Status.ACTIVE),
-                card.getStatus().equals(Status.ACTIVE),
-                card.getStatus().equals(Status.ACTIVE),
-                card.getRole().getAuthorities()
+                model.getLogin(),
+                model.getPassword(),
+                model.getStatus().equals(Status.ACTIVE),
+                model.getStatus().equals(Status.ACTIVE),
+                model.getStatus().equals(Status.ACTIVE),
+                model.getStatus().equals(Status.ACTIVE),
+                model.getRole().getAuthorities()
         );
     }
 }

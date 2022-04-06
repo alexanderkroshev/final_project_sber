@@ -12,11 +12,11 @@ import server.model.User;
 public class UserRepository {
     private JdbcTemplate jdbcTemplate;
 
-    public User findUserByCardId(Long id) {
+    public User findByLogin(String login) {
         return jdbcTemplate.queryForObject(
-                "select * from user u inner join card c on u.id = c.id where c.id=?",
+                "select * from user where login=?",
                 BeanPropertyRowMapper.newInstance(User.class),
-                id
+                login
         );
     }
 }
