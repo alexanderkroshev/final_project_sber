@@ -10,11 +10,8 @@ import lombok.NoArgsConstructor;
 public class AuthenticationRequestDto {
     private String login;
     private String password;
+   // private String type;
 }
-
-
-
-
 
 //TODO
 //{

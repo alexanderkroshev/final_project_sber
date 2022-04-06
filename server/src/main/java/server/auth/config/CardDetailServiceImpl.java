@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import server.model.Card;
 import server.service.CardService;
 
-
 @Service("userDetailsServiceImpl")
 @AllArgsConstructor
 public class CardDetailServiceImpl implements UserDetailsService {

@@ -14,7 +14,6 @@ import java.util.List;
 
 @Data
 public class CardDetails implements UserDetails {
-
     private final String cardNumber;
     private final String password;
     private final List<SimpleGrantedAuthority> authorities;
