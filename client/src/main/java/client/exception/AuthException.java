@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
-public class AuthorizationException extends RuntimeException {
+public class AuthException extends RuntimeException {
 
-    public AuthorizationException(String message, Throwable cause) {
+    public AuthException(String message, Throwable cause) {
         super(message, cause);
     }
 }

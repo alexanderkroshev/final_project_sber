@@ -1,6 +1,6 @@
 package client.token;
 
-import client.exception.AuthorizationException;
+import client.exception.AuthException;
 import client.exception.TokenNotFoundException;
 import common.AuthDto;
 import common.TokenDto;
@@ -32,9 +32,7 @@ public class TokenProvider {
 
     public void login(String number, String password) {
         try {
-            AuthDto authentication = new AuthDto(
-                    number, password, Type.CARD
-            );
+            AuthDto authentication = new AuthDto(number, password, Type.CARD);
             HttpHeaders headers = new HttpHeaders();
             HttpEntity<AuthDto> authEntity = new HttpEntity<>(
                     authentication, headers
@@ -45,7 +43,7 @@ public class TokenProvider {
         } catch (Exception e) {
             String msg = "Error while login with card number: " + number;
             log.info(msg);
-            throw new AuthorizationException(msg, e);
+            throw new AuthException(msg, e);
         }
     }
 
