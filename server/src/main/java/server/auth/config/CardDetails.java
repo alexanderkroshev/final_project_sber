@@ -6,7 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import server.auth.Status;
-import server.model.Card;
+import server.model.BasicModel;
 
 
 import java.util.Collection;
@@ -54,7 +54,7 @@ public class CardDetails implements UserDetails {
         return isActive;
     }
 
-    public static UserDetails fromCard(Card card) {
+    public static UserDetails fromCard(BasicModel card) {
         return new User(
                 card.getLogin(),
                 card.getPassword(),
@@ -62,7 +62,7 @@ public class CardDetails implements UserDetails {
                 card.getStatus().equals(Status.ACTIVE),
                 card.getStatus().equals(Status.ACTIVE),
                 card.getStatus().equals(Status.ACTIVE),
-                card.getCardRole().getAuthorities()
+                card.getRole().getAuthorities()
         );
     }
 }

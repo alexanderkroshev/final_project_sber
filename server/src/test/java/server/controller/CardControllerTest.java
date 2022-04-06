@@ -25,6 +25,7 @@ class CardControllerTest {
                 "12345242",
                 "1111",
                 new BigDecimal(100),
+                null,
                 Role.USER,
                 Status.ACTIVE
         );

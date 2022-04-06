@@ -37,7 +37,7 @@ public class AuthenticationController {
             authManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authDto.getLogin(), authDto.getPassword())
             );
-            String token = jwtTokenProvider.createToken(authDto.getLogin(), card.getCardRole().name());
+            String token = jwtTokenProvider.createToken(authDto.getLogin(), card.getRole().name());
             return ResponseEntity.ok(new TokenDto(token));
         } catch (Exception e) {
             String msg = "auth failed for user: " + authDto.getLogin();
@@ -52,6 +52,7 @@ public class AuthenticationController {
         securityContextLogoutHandler.logout(request, response, null);
     }
 }
+
 
 //TODO main
 //1. роль не должна быть частью карточки, это должна отдельная таблица с админом и юзерами
