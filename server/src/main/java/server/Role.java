@@ -1,9 +1,9 @@
-package server.auth;
+package server;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import server.auth.config.Permission;
+import server.auth.Permission;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -13,7 +13,8 @@ import java.util.stream.Stream;
 @Getter
 public enum Role {
     USER(Stream.of(Permission.DEVELOPERS_READ).collect(Collectors.toSet())),
-    ADMIN(Stream.of(Permission.DEVELOPERS_READ, Permission.DEVELOPERS_WRITE).collect(Collectors.toSet()));
+    ADMIN(Stream.of(Permission.DEVELOPERS_READ, Permission.DEVELOPERS_WRITE)
+            .collect(Collectors.toSet()));
 
     private Set<Permission> permissions;
 

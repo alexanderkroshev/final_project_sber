@@ -1,15 +1,15 @@
-package server.auth.config;
+package server.auth;
 
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import server.model.BasicModel;
+import server.model.BasicAuthModel;
 import server.service.CardService;
 import server.service.UserService;
 
-@Service("userDetailsServiceImpl")
+@Service
 @AllArgsConstructor
 public class UserDetailServiceImpl implements UserDetailsService  {
     private CardService cardService;
@@ -17,12 +17,11 @@ public class UserDetailServiceImpl implements UserDetailsService  {
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        BasicModel model;
+        BasicAuthModel model;
         if (login.matches("[0-9]+"))
             model = cardService.findByLogin(login);
         else
             model = userService.findByLogin(login);
-
         return UserDetailsImpl.fromBasicModel(model);
     }
 }

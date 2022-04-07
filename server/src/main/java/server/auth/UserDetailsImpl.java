@@ -1,14 +1,12 @@
-package server.auth.config;
+package server.auth;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import server.auth.Status;
-import server.model.BasicModel;
-
-
+import server.Status;
+import server.model.BasicAuthModel;
 import java.util.Collection;
 import java.util.List;
 
@@ -54,7 +52,7 @@ public class UserDetailsImpl implements UserDetails {
         return isActive;
     }
 
-    public static UserDetails fromBasicModel(BasicModel model) {
+    public static UserDetails fromBasicModel(BasicAuthModel model) {
         return new User(
                 model.getLogin(),
                 model.getPassword(),

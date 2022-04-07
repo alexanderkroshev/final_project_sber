@@ -1,4 +1,4 @@
-package server.auth;
+package server;
 
 public enum Status {
     ACTIVE, BLOCKED

@@ -4,15 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import server.auth.Role;
-import server.auth.Status;
+import server.Role;
+import server.Status;
 
 import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Card implements BasicModel {
+public class Card implements BasicAuthModel {
     @Id
     private Long id;
 

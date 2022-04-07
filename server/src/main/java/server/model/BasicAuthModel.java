@@ -1,9 +1,9 @@
 package server.model;
 
-import server.auth.Role;
-import server.auth.Status;
+import server.Role;
+import server.Status;
 
-public interface BasicModel {
+public interface BasicAuthModel {
 
     String getLogin();
 

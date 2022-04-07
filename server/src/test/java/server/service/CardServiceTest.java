@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
-import server.auth.Role;
-import server.auth.Status;
+import server.Role;
+import server.Status;
 import server.model.Card;
 import server.repository.CardRepository;
 

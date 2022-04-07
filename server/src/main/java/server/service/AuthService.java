@@ -8,14 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Service;
-import server.auth.config.UserDetailsImpl;
 import server.auth.jwt.JwtTokenProvider;
-import server.model.BasicModel;
+import server.model.BasicAuthModel;
 import server.repository.CardRepository;
 import server.repository.UserRepository;
 
@@ -32,13 +28,12 @@ public class AuthService {
     private JwtTokenProvider jwtTokenProvider;
 
     public ResponseEntity<TokenDto> login(AuthDto authDto) {
-        BasicModel basicModel;
+        BasicAuthModel basicModel;
         try {
             if (authDto.getType().equals(Type.CARD))
-                basicModel= cardRepository.findByLogin(authDto.getLogin());
+                basicModel = cardRepository.findByLogin(authDto.getLogin());
             else
                 basicModel = userRepository.findByLogin(authDto.getLogin());
-
             authManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authDto.getLogin(), authDto.getPassword())
             );

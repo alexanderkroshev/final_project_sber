@@ -30,15 +30,6 @@ public class AuthController {
     public void logout(HttpServletRequest request, HttpServletResponse response) {
       authService.logout(request, response);
     }
-
-
-
 }
-//TODO main
-//1. роль не должна быть частью карточки, это должна отдельная таблица с админом и юзерами
 
-//TODO tests
-//1. случай что все ок и вернулся токен
-//2. случай что карта не найдена
-//3. случай что пароль неправильный
-//4. случай что если карта забанена, то токен не вернется и будет ошибка
+

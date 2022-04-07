@@ -3,8 +3,8 @@ package server.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import server.auth.Role;
-import server.auth.Status;
+import server.Role;
+import server.Status;
 
 import javax.persistence.Id;
 
@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User implements BasicModel {
+public class User implements BasicAuthModel {
     @Id
     private Long id;
 
