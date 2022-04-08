@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 
 @SpringBootTest
 class CardControllerTest {
-
     @Mock
     private CardService cardService;
 
@@ -29,7 +28,6 @@ class CardControllerTest {
                 Role.USER,
                 Status.ACTIVE
         );
-
         Mockito.when(cardService.findByLogin("12345242")).thenReturn(card1);
         BigDecimal bigDecimal = cardService.findByLogin("12345242").getBalance();
 

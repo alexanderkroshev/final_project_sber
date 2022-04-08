@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 
 @SpringBootTest
 class CardServiceTest {
-
     @Mock
     private CardRepository cardRepository;
 
@@ -29,10 +28,8 @@ class CardServiceTest {
                 Role.USER,
                 Status.ACTIVE
         );
-
         Mockito.when(cardRepository.findByLogin("12345242")).thenReturn(card1);
         Card card2 = cardRepository.findByLogin("12345242");
-
         Assertions.assertEquals(card1.getLogin(), card2.getLogin());
     }
 }

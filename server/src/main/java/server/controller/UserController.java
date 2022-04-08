@@ -24,8 +24,6 @@ public class UserController {
         return userService.findByLogin(login);
     }
 
-
-
     //@PreAuthorize("hasAuthority('developers:write')")
     @GetMapping ("/all")
     @PreAuthorize("hasAuthority('developers:write')")

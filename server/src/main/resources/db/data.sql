@@ -1,6 +1,6 @@
 insert into user values (1, 'Bob_1', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 'Boris', 'Alexeev', 'USER', 'ACTIVE');
 insert into user values (2, 'Vova_2', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 'Vova', 'Petrov', 'USER', 'ACTIVE');
-insert into user values (3, 'Vova_3', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 'Tom', 'Cat', 'USER', 'ACTIVE');
+insert into user values (3, 'Tom_3', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 'Tom', 'Cat', 'USER', 'ACTIVE');
 insert into user values (4, 'Igor_4', '$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu', 'Igor', 'Vasilev', 'ADMIN', 'ACTIVE');
 
 

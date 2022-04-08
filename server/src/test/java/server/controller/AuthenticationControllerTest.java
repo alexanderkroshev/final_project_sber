@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 class AuthenticationControllerTest {
-
     @Autowired
     private AuthController authController;
 
@@ -15,7 +14,6 @@ class AuthenticationControllerTest {
 //        ResponseEntity<TokenDto> response = authController.login(authDto);
 //
 //       //Assertions.assertTrue();
-
 
     }
 

@@ -12,6 +12,10 @@ class AuthControllerTest {
 //4. случай что если карта забанена, то токен не вернется и будет ошибка
     @Test
     void successfulLogin() {
+//        AuthenticationRequestDto authDto = new AuthenticationRequestDto(
+//                "12345678", "1111");
+//        ResponseEntity<TokenDto> response = authController.login(authDto);
+//
 
     }
 

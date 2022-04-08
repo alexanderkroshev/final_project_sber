@@ -8,7 +8,6 @@ import server.model.Card;
 
 @SpringBootTest
 class CardRepositoryTest {
-
     @Autowired
     private CardRepository cardRepository;
 

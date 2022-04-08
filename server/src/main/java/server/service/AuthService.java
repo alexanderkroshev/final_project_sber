@@ -11,6 +11,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Service;
 import server.auth.jwt.JwtTokenProvider;
+import server.exception.AuthException;
 import server.model.BasicAuthModel;
 import server.repository.CardRepository;
 import server.repository.UserRepository;
@@ -42,7 +43,8 @@ public class AuthService {
         } catch (Exception e) {
             String msg = "auth failed for user: " + authDto.getLogin();
             log.info(msg);
-            throw new RuntimeException(msg); //TODO custom exception
+            throw new AuthException(msg);
+         //   throw new RuntimeException(msg); //TODO custom exception
         }
     }
 
