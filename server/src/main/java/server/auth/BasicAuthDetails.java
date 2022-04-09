@@ -11,8 +11,8 @@ import java.util.Collection;
 import java.util.List;
 
 @Data
-public class UserDetailsImpl implements UserDetails {
-    private final String cardNumber;
+public class BasicAuthDetails implements UserDetails {
+    private final String login;
     private final String password;
     private final List<SimpleGrantedAuthority> authorities;
     private final boolean isActive;
@@ -29,7 +29,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
-        return cardNumber;
+        return login;
     }
 
     @Override

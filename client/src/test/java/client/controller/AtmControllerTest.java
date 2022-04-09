@@ -1,6 +1,6 @@
 package client.controller;
 
-import common.BalanceDto;
+import common.dto.BalanceDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +11,10 @@ import java.math.BigDecimal;
 
 @SpringBootTest
 class AtmControllerTest {
-
     @Autowired
     private AtmController atmController;
-
     @Autowired
     private AuthController authController;
-
 
     @Test
     void getBalance() {

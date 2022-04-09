@@ -1,7 +1,7 @@
 package server.controller;
 
-import common.AuthDto;
-import common.TokenDto;
+import common.dto.AuthDto;
+import common.dto.TokenDto;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

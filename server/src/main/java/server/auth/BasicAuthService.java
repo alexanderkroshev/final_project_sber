@@ -11,7 +11,7 @@ import server.service.UserService;
 
 @Service
 @AllArgsConstructor
-public class UserDetailServiceImpl implements UserDetailsService  {
+public class BasicAuthService implements UserDetailsService  {
     private CardService cardService;
     private UserService userService;
 
@@ -22,7 +22,7 @@ public class UserDetailServiceImpl implements UserDetailsService  {
             model = cardService.findByLogin(login);
         else
             model = userService.findByLogin(login);
-        return UserDetailsImpl.fromBasicModel(model);
+        return BasicAuthDetails.fromBasicModel(model);
     }
 }
 

@@ -1,13 +1,13 @@
 package client.controller;
 
 import client.service.CardService;
-import common.BalanceDto;
+import common.dto.BalanceDto;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/card")
+@RequestMapping("/cards")
 public class AtmController {
     private CardService cardService;
 

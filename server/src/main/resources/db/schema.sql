@@ -15,7 +15,7 @@ create table card (
   id serial,
   card_number varchar(20) not null unique,
   card_password varchar(100) not null,
-  balance decimal not null,
+  balance decimal default 0,
   user_id bigint  references user (id),
   status    varchar(20) default 'ACTIVE'
 );

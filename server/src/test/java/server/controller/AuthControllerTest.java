@@ -1,10 +1,15 @@
 package server.controller;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
+import server.service.AuthService;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+@SpringBootTest
 class AuthControllerTest {
+    @Mock
+    private AuthService authService;
+
 //TODO tests
 //1. случай что все ок и вернулся токен
 //2. случай что карта не найдена
@@ -12,31 +17,11 @@ class AuthControllerTest {
 //4. случай что если карта забанена, то токен не вернется и будет ошибка
     @Test
     void successfulLogin() {
-//        AuthenticationRequestDto authDto = new AuthenticationRequestDto(
-//                "12345678", "1111");
-//        ResponseEntity<TokenDto> response = authController.login(authDto);
-//
-
+//        AuthDto authDto = new AuthDto(    "12345678", "1111", Type.CARD);
+//        Mockito.when(authService.login(authDto)).thenReturn();
+//        ResponseEntity<TokenDto> response = authService.login(authDto);
     }
 
-    @Test
-    void cardNotFound() {
 
-    }
-
-    @Test
-    void invalidPassword() {
-
-    }
-
-    @Test
-    void blockedCard() {
-
-    }
-
-    @Test
-    void adminAccess() {
-
-    }
 
 }

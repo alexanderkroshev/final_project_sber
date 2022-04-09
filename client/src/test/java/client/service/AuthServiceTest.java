@@ -1,14 +1,16 @@
-package client.savetoken;
+package client.service;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TokenProviderTest {
+@SpringBootTest
+class AuthServiceTest {
+
 
     @Test
     void login() {
-
     }
 
     @Test

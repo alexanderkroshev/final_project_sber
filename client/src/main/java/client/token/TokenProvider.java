@@ -2,8 +2,8 @@ package client.token;
 
 import client.exception.AuthException;
 import client.exception.TokenNotFoundException;
-import common.AuthDto;
-import common.TokenDto;
+import common.dto.AuthDto;
+import common.dto.TokenDto;
 import common.Type;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

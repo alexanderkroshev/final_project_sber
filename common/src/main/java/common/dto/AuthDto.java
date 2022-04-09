@@ -1,5 +1,6 @@
-package common;
+package common.dto;
 
+import common.Type;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

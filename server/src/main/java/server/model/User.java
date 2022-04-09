@@ -15,7 +15,6 @@ import javax.persistence.Id;
 public class User implements BasicAuthModel {
     @Id
     private Long id;
-
     private String login;
     private String password;
     private String name;
