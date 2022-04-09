@@ -6,14 +6,14 @@ import lombok.NoArgsConstructor;
 import server.Role;
 import server.Status;
 
-import javax.persistence.Id;
+//import javax.persistence.Id;
 
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements BasicAuthModel {
-    @Id
+//    @Id
     private Long id;
     private String login;
     private String password;
