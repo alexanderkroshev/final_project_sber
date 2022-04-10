@@ -3,19 +3,21 @@ package server.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import server.auth.Role;
-import server.auth.Status;
+import org.springframework.data.annotation.Id;
+import server.Role;
+import server.Status;
 
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person implements Auth{
+public class User implements BasicAuthModel {
+    @Id
     private Long id;
     private String login;
     private String password;
-    private Set<Card> cards;
-    private Role cardRole;
+    private String name;
+    private String surname;
+    private Role role;
     private Status status;
 }

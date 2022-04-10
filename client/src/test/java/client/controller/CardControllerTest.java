@@ -1,38 +1,41 @@
 package client.controller;
 
-import client.service.AuthService;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.SneakyThrows;
+import client.service.CardService;
+import common.dto.BalanceDto;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import request.LoginRequest;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import java.math.BigDecimal;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class AuthControllerTest {
+class CardControllerTest {
     @MockBean
-    private AuthService authService;
+    private CardService cardService;
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    @SneakyThrows
-    void login() {
-        LoginRequest loginRequest = new LoginRequest("12345829896782", "1111");
-        String json = new ObjectMapper().writeValueAsString(loginRequest);
+    void cardBalance() throws Exception {
+        Mockito.when(cardService.getBalance()).thenReturn(new BalanceDto(new BigDecimal(100)));
         mockMvc.perform(
-                        post("/cards/login")
-                                .content(json)
+                        get("/cards/balance")
                                 .contentType(MediaType.APPLICATION_JSON)
                 )
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.balance").value(100));
     }
 }
+
+

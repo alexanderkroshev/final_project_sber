@@ -5,6 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.GenericFilterBean;
+import server.exception.JwtAuthException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -29,10 +30,10 @@ public class JwtTokenFilter extends GenericFilterBean {
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
             }
-        } catch (JwtAuthenticationException e) {
+        } catch (JwtAuthException e) {
             SecurityContextHolder.clearContext();
             ((HttpServletResponse) servletResponse).sendError(e.getHttpStatus().value());
-            throw new JwtAuthenticationException("JWT token is expired or invalid");
+            throw new JwtAuthException("JWT token is expired or invalid");
         }
         filterChain.doFilter(servletRequest, servletResponse);
     }

@@ -1,20 +1,18 @@
-package server.auth.config;
+package server.auth;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
-import server.auth.Status;
-import server.model.Card;
-
-
+import server.Status;
+import server.model.BasicAuthModel;
 import java.util.Collection;
 import java.util.List;
 
 @Data
-public class CardDetails implements UserDetails {
-    private final String cardNumber;
+public class AuthDetails implements UserDetails {
+    private final String login;
     private final String password;
     private final List<SimpleGrantedAuthority> authorities;
     private final boolean isActive;
@@ -31,7 +29,7 @@ public class CardDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return cardNumber;
+        return login;
     }
 
     @Override
@@ -54,15 +52,15 @@ public class CardDetails implements UserDetails {
         return isActive;
     }
 
-    public static UserDetails fromCard(Card card) {
+    public static UserDetails fromBasicModel(BasicAuthModel model) {
         return new User(
-                card.getLogin(),
-                card.getPassword(),
-                card.getStatus().equals(Status.ACTIVE),
-                card.getStatus().equals(Status.ACTIVE),
-                card.getStatus().equals(Status.ACTIVE),
-                card.getStatus().equals(Status.ACTIVE),
-                card.getCardRole().getAuthorities()
+                model.getLogin(),
+                model.getPassword(),
+                model.getStatus().equals(Status.ACTIVE),
+                model.getStatus().equals(Status.ACTIVE),
+                model.getStatus().equals(Status.ACTIVE),
+                model.getStatus().equals(Status.ACTIVE),
+                model.getRole().getAuthorities()
         );
     }
 }

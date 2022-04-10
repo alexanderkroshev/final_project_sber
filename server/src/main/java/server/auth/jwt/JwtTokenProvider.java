@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
+import server.exception.JwtAuthException;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,6 @@ import java.util.Date;
 
 @Component
 public class JwtTokenProvider {
-
     private UserDetailsService userDetailsService;
 
     @Value("${jwt.secret}")
@@ -27,7 +27,7 @@ public class JwtTokenProvider {
     @Value("${jwt.expiration}")
     private long validityInMilliseconds;
 
-    public JwtTokenProvider(@Qualifier("userDetailsServiceImpl") UserDetailsService userDetailsService) {
+    public JwtTokenProvider(@Qualifier("AuthDetailsService") UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
@@ -55,7 +55,7 @@ public class JwtTokenProvider {
             Jws<Claims> claimsJws = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
             return !claimsJws.getBody().getExpiration().before(new Date());
         } catch (JwtException | IllegalArgumentException e) {
-            throw new JwtAuthenticationException("JWT token is expired or invalid", HttpStatus.UNAUTHORIZED);
+            throw new JwtAuthException("JWT token is expired or invalid", HttpStatus.UNAUTHORIZED);
         }
     }
 
