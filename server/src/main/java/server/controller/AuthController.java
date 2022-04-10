@@ -31,5 +31,3 @@ public class AuthController {
       authService.logout(request, response);
     }
 }
-
-

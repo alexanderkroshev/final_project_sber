@@ -31,4 +31,3 @@ public class CardService {
                 orElseThrow(BalanceNotFoundException::new);
     }
 }
-

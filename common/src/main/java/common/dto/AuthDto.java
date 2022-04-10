@@ -13,4 +13,3 @@ public class AuthDto {
     private String password;
     private Type type;
 }
-

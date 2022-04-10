@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CardsBelongToUserDto {
+public class UserCardDto {
     private String cardNumber;
     private BigDecimal balance;
     private Status status;

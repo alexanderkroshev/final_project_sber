@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Data
-public class BasicAuthDetails implements UserDetails {
+public class AuthDetails implements UserDetails {
     private final String login;
     private final String password;
     private final List<SimpleGrantedAuthority> authorities;

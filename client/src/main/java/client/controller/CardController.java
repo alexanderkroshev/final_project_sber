@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/cards")
-public class AtmController {
+public class CardController {
     private CardService cardService;
 
     @GetMapping("/balance")
@@ -16,4 +16,3 @@ public class AtmController {
         return cardService.getBalance();
     }
 }
-

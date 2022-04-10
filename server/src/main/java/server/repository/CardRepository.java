@@ -6,7 +6,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import server.dto.CardsBelongToUserDto;
+import server.dto.CardDto;
+import server.dto.UserCardDto;
 import server.exception.CardNotFoundException;
 import server.model.Card;
 
@@ -38,10 +39,10 @@ public class CardRepository {
         return true;
     }
 
-    public List<CardsBelongToUserDto> findCardsBelongToUser(Long id) {
+    public List<UserCardDto> findUserCards(Long id) {
         return jdbcTemplate.query(
                 "select * from card where user_id=?",
-                BeanPropertyRowMapper.newInstance(CardsBelongToUserDto.class),
+                BeanPropertyRowMapper.newInstance(UserCardDto.class),
                 id
         );
     }

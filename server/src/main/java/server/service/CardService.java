@@ -3,8 +3,7 @@ package server.service;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import server.dto.CardDto;
-import server.dto.CardsBelongToUserDto;
+import server.dto.UserCardDto;
 import server.model.Card;
 import server.repository.CardRepository;
 
@@ -25,8 +24,8 @@ public class CardService {
         return cardRepository.saveCard(card);
     }
 
-    public List<CardsBelongToUserDto> findCardsBelongToUser(Long userId) {
-        return cardRepository.findCardsBelongToUser(userId);
+    public List<UserCardDto> findUserCards(Long userId) {
+        return cardRepository.findUserCards(userId);
     }
 }
 

@@ -11,12 +11,12 @@ import org.springframework.security.authentication.LockedException;
 import server.exception.CardNotFoundException;
 
 @SpringBootTest
-class AuthServiceTest {
+class AuthDetailsServiceTest {
     @Autowired
     private AuthService authService;
 
     @Test
-    void successfulLogin() {
+    void loginSucceed() {
         AuthDto authDto = new AuthDto("12345678", "1111", Type.CARD);
         String response = authService.login(authDto).getBody().getToken();
         Assertions.assertNotNull(response);
@@ -24,16 +24,15 @@ class AuthServiceTest {
 
     @Test
     void cardNotFound() {
-        Assertions.assertThrows(CardNotFoundException.class,()->{
+        Assertions.assertThrows(CardNotFoundException.class, () -> {
             AuthDto authDto = new AuthDto("1", "1111", Type.CARD);
             authService.login(authDto).getBody().getToken();
         });
-
     }
 
     @Test
     void invalidPassword() {
-        Assertions.assertThrows(BadCredentialsException.class,()->{
+        Assertions.assertThrows(BadCredentialsException.class, () -> {
             AuthDto authDto = new AuthDto("12345678", "3424234234", Type.CARD);
             authService.login(authDto).getBody().getToken();
         });
@@ -41,7 +40,7 @@ class AuthServiceTest {
 
     @Test
     void blockedCard() {
-        Assertions.assertThrows(LockedException.class,()->{
+        Assertions.assertThrows(LockedException.class, () -> {
             AuthDto authDto = new AuthDto("78861357", "1111", Type.CARD);
             authService.login(authDto).getBody().getToken();
         });

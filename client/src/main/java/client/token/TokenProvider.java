@@ -32,10 +32,10 @@ public class TokenProvider {
 
     public void login(String number, String password) {
         try {
-            AuthDto authentication = new AuthDto(number, password, Type.CARD);
+            AuthDto auth = new AuthDto(number, password, Type.CARD);
             HttpHeaders headers = new HttpHeaders();
             HttpEntity<AuthDto> authEntity = new HttpEntity<>(
-                    authentication, headers
+                    auth, headers
             );
             ResponseEntity<TokenDto> response = restTemplate.exchange(AUTHORIZATION_URL,
                     HttpMethod.POST, authEntity, TokenDto.class);

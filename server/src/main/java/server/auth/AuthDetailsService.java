@@ -9,9 +9,9 @@ import server.model.BasicAuthModel;
 import server.service.CardService;
 import server.service.UserService;
 
-@Service
+@Service("AuthDetailsService")
 @AllArgsConstructor
-public class BasicAuthService implements UserDetailsService  {
+public class AuthDetailsService implements UserDetailsService  {
     private CardService cardService;
     private UserService userService;
 
@@ -22,7 +22,6 @@ public class BasicAuthService implements UserDetailsService  {
             model = cardService.findByLogin(login);
         else
             model = userService.findByLogin(login);
-        return BasicAuthDetails.fromBasicModel(model);
+        return AuthDetails.fromBasicModel(model);
     }
 }
-
