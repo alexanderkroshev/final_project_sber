@@ -1,12 +1,12 @@
-#ATM-server graduation project
-##перед вами проект, написанный с использованием технологий:
+# ATM-server graduation project
+## перед вами проект, написанный с использованием технологий:
 
-###spring boot,
-###spring mvc,
-###spring data jdbc,
-###spring security + JWT,
-###H2 БД,
-###docker;
+### spring boot,
+### spring mvc,
+### spring data jdbc,
+### spring security + JWT,
+### H2 БД,
+### docker;
 
 Бд имеет следующую структуру: имеем таблицу с банковскими картами и имеем таблицу с пользователями, 
 один пользователь может иметь несколько карт. При аутентификации карты мы используем логин(номер карты) и пароль. 
