@@ -20,8 +20,10 @@ docker;
 для создания админом новых карт и добавления новых пользователей в БД. 
 
 для запуска проекта необходимо:
-mvn clean install spring-boot:build-image -DskipTests
+mvn clean install spring-boot:build-image -
+
 docker run -p 9091:9091 docker.io/library/client:2.4.5
+
 docker run -p 8080:8080 docker.io/library/server:2.4.5
 
 
