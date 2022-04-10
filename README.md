@@ -1,16 +1,12 @@
-перед вами проект, написанный с использованием технологий:
+#ATM-server graduation project
+##перед вами проект, написанный с использованием технологий:
 
-spring boot,
-
-spring mvc,
-
-spring data jdbc,
-
-spring security + JWT,
-
-H2 БД,
-
-docker;
+###spring boot,
+###spring mvc,
+###spring data jdbc,
+###spring security + JWT,
+###H2 БД,
+###docker;
 
 Бд имеет следующую структуру: имеем таблицу с банковскими картами и имеем таблицу с пользователями, 
 один пользователь может иметь несколько карт. При аутентификации карты мы используем логин(номер карты) и пароль. 
@@ -19,11 +15,10 @@ docker;
 (на подобии того, как мы получаем всю информацию по картам заходя в сбербанк онлайн); 
 для создания админом новых карт и добавления новых пользователей в БД. 
 
-для запуска проекта необходимо:
-mvn clean install spring-boot:build-image -
 
-docker run -p 9091:9091 docker.io/library/client:2.4.5
-
-docker run -p 8080:8080 docker.io/library/server:2.4.5
-
-
+###для запуска проекта необходимо:
+```bash
+    >>./mvn clean install spring-boot:build-image -
+    >>./docker run -p 9091:9091 docker.io/library/client:2.4.5
+    >>./docker run -p 8080:8080 docker.io/library/server:2.4.5
+```
