@@ -22,6 +22,4 @@ class AuthControllerTest {
 //        ResponseEntity<TokenDto> response = authService.login(authDto);
     }
 
-
-
 }

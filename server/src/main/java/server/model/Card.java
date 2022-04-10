@@ -2,7 +2,6 @@ package server.model;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.web.bind.annotation.GetMapping;
 import server.Role;
 import server.Status;
 

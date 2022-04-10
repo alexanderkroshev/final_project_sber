@@ -5,12 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import server.dto.CardsBelongToUserDto;
 import server.exception.UserNotFoundException;
-import server.model.Card;
 import server.model.User;
-
-import java.util.List;
 
 
 @Slf4j
@@ -34,11 +30,9 @@ public class UserRepository {
     }
 
     public void saveUser(User user) {
-        String sql = "insert into user(login, password, name, surname) values (?,?,?,?);";
-        jdbcTemplate.update(sql, user.getLogin(), user.getPassword(), user.getName(), user.getSurname());
+            String sql = "insert into user(login, password, name, surname) values (?,?,?,?);";
+            jdbcTemplate.update(sql, user.getLogin(), user.getPassword(), user.getName(), user.getSurname());
     }
-
-
 }
 
 
