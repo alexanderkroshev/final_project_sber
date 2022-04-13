@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -44,8 +45,6 @@ class CardServiceTest {
                         httpEntity,
                         BalanceDto.class))
                 .thenReturn(new ResponseEntity<>(balanceDto, HttpStatus.OK));
-
         Assertions.assertEquals(cardService.getBalance(), balanceDto);
     }
 }
-

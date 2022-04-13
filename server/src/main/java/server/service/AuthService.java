@@ -11,7 +11,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Service;
 import server.auth.jwt.JwtTokenProvider;
-import server.model.BasicAuthModel;
+import server.model.AuthModel;
 import server.repository.CardRepository;
 import server.repository.UserRepository;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +27,7 @@ public class AuthService {
     private JwtTokenProvider jwtTokenProvider;
 
     public ResponseEntity<TokenDto> login(AuthDto authDto) {
-        BasicAuthModel basicModel;
+        AuthModel basicModel;
         Type type = authDto.getType();
         String login = authDto.getLogin();
         if (type.equals(Type.CARD))

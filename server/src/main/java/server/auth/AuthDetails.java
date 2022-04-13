@@ -6,7 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import server.Status;
-import server.model.BasicAuthModel;
+import server.model.AuthModel;
 import java.util.Collection;
 import java.util.List;
 
@@ -52,7 +52,7 @@ public class AuthDetails implements UserDetails {
         return isActive;
     }
 
-    public static UserDetails fromBasicModel(BasicAuthModel model) {
+    public static UserDetails fromBasicModel(AuthModel model) {
         return new User(
                 model.getLogin(),
                 model.getPassword(),

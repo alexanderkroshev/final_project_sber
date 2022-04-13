@@ -2,9 +2,9 @@ package client.token;
 
 import client.exception.AuthException;
 import client.exception.TokenNotFoundException;
+import common.Type;
 import common.dto.AuthDto;
 import common.dto.TokenDto;
-import common.Type;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
@@ -33,10 +33,7 @@ public class TokenProvider {
     public void login(String number, String password) {
         try {
             AuthDto auth = new AuthDto(number, password, Type.CARD);
-            HttpHeaders headers = new HttpHeaders();
-            HttpEntity<AuthDto> authEntity = new HttpEntity<>(
-                    auth, headers
-            );
+            HttpEntity<AuthDto> authEntity = new HttpEntity<>(auth);
             ResponseEntity<TokenDto> response = restTemplate.exchange(AUTHORIZATION_URL,
                     HttpMethod.POST, authEntity, TokenDto.class);
             token = response.getBody().getToken();

@@ -11,7 +11,7 @@ import server.Status;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User implements BasicAuthModel {
+public class User implements AuthModel {
     @Id
     private Long id;
     private String login;

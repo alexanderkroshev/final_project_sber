@@ -3,7 +3,7 @@ package server.model;
 import server.Role;
 import server.Status;
 
-public interface BasicAuthModel {
+public interface AuthModel {
 
     String getLogin();
 

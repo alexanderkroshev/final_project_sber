@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Card implements BasicAuthModel {
+public class Card implements AuthModel {
     @Id
     private Long id;
 
