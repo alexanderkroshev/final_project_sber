@@ -20,21 +20,16 @@ import server.model.Card;
 import server.model.User;
 import server.repository.CardRepository;
 import server.repository.UserRepository;
-import server.service.CardService;
 
 import java.math.BigDecimal;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @SpringBootTest
 @AutoConfigureMockMvc
 class CardControllerSaveTest {
-    @MockBean
-    private CardService cardService;
     @Autowired
     private MockMvc mockMvc;
     @MockBean
@@ -46,19 +41,14 @@ class CardControllerSaveTest {
     @Autowired
     private ObjectMapper mapper;
 
-    private final AuthDto authDto = new AuthDto("12345678", "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu", Type.PERSON);
-    private final AuthDto authAdminDto = new AuthDto("admin", "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu", Type.PERSON);
+    private final AuthDto authAdminDto = new AuthDto("admin",
+            "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu",
+            Type.PERSON);
 
     private final String token = "token_123";
 
-    private final Card card = new Card(1L,
-            authDto.getLogin(),
-            authDto.getPassword(),
-            new BigDecimal(100),
-            1L,
-            Status.ACTIVE);
-
-    private final Card saveCard = new Card(2L,
+    private final Card saveCard = new Card(
+            2L,
             "1231234234234",
             "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu",
             new BigDecimal(100),
@@ -70,13 +60,9 @@ class CardControllerSaveTest {
         Mockito.when(jwtTokenProvider.resolveToken(Mockito.any())).thenReturn(token);
         Mockito.when(jwtTokenProvider.validateToken(token)).thenReturn(true);
         Mockito.when(jwtTokenProvider.getAuthentication(token)).thenReturn(
-                new UsernamePasswordAuthenticationToken(authAdminDto.getLogin(), "1111")
-        );
-        Mockito.when(cardService.findByLogin(Mockito.any())).thenReturn(card);
-        Mockito.when(cardRepository.findByLogin(Mockito.any())).thenReturn(card);
+                new UsernamePasswordAuthenticationToken(authAdminDto.getLogin(), "1111"));
         Mockito.when(userRepository.findByLogin(Mockito.any())).thenReturn(
-                new User(1L, authAdminDto.getLogin(),
-                        authAdminDto.getPassword(),
+                new User(1L, authAdminDto.getLogin(), authAdminDto.getPassword(),
                         "bob", "", Role.ADMIN, Status.ACTIVE)
         );
     }

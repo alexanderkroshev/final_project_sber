@@ -27,17 +27,17 @@ public class AuthService {
     private JwtTokenProvider jwtTokenProvider;
 
     public ResponseEntity<TokenDto> login(AuthDto authDto) {
-        AuthModel basicModel;
+        AuthModel authModel;
         Type type = authDto.getType();
         String login = authDto.getLogin();
         if (type.equals(Type.CARD))
-            basicModel = cardRepository.findByLogin(login);
+            authModel = cardRepository.findByLogin(login);
         else
-            basicModel = userRepository.findByLogin(login);
+            authModel = userRepository.findByLogin(login);
         authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(login, authDto.getPassword())
         );
-        String token = jwtTokenProvider.createToken(login, basicModel.getRole().name());
+        String token = jwtTokenProvider.createToken(login, authModel.getRole().name());
         return ResponseEntity.ok(new TokenDto(token));
     }
 

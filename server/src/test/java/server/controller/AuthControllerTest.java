@@ -7,7 +7,6 @@ import common.dto.TokenDto;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -45,7 +44,9 @@ class AuthControllerTest {
     @Autowired
     private ObjectMapper mapper;
 
-    private AuthDto authDto = new AuthDto("bob", "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu", Type.PERSON);
+    private AuthDto authDto = new AuthDto("bob",
+            "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu",
+            Type.PERSON);
 
     @BeforeEach
     void setUpMocks() {
@@ -55,8 +56,7 @@ class AuthControllerTest {
         Mockito.when(jwtTokenProvider.getAuthentication(token)).thenReturn(
                 new UsernamePasswordAuthenticationToken(authDto.getLogin(), "1111"));
         Mockito.when(userRepository.findByLogin(Mockito.any())).thenReturn(
-                new User(1L, authDto.getLogin(),
-                        authDto.getPassword(),
+                new User(1L, authDto.getLogin(), authDto.getPassword(),
                         "bob", "", Role.USER, Status.ACTIVE)
         );
     }

@@ -4,16 +4,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import server.dto.UserCardDto;
 import server.exception.CardNotFoundException;
 import server.model.Card;
-import server.model.User;
-
 import java.util.List;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 class CardRepositoryTest {
@@ -30,7 +25,8 @@ class CardRepositoryTest {
 
     @Test
     void findByCardNumberFailed() {
-        Assertions.assertThrows(CardNotFoundException.class, () -> cardRepository.findByLogin("11133"));
+        Assertions.assertThrows(CardNotFoundException.class,
+                () -> cardRepository.findByLogin("11133"));
     }
 
     @Test

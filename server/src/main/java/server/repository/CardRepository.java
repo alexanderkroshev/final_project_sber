@@ -5,8 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
-import server.dto.CardDto;
 import server.dto.UserCardDto;
 import server.exception.CardNotFoundException;
 import server.model.Card;
