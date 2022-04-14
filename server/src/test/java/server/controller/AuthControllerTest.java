@@ -7,6 +7,7 @@ import common.dto.TokenDto;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -38,15 +39,13 @@ class AuthControllerTest {
     @MockBean
     private UserRepository userRepository;
 
-    private String token = "token_123";
-
+    private final String token = "token_123";
     @Autowired
     private MockMvc mockMvc;
-
     @Autowired
     private ObjectMapper mapper;
 
-    private AuthDto authDto = new AuthDto("bob", "1111", Type.PERSON);
+    private AuthDto authDto = new AuthDto("bob", "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu", Type.PERSON);
 
     @BeforeEach
     void setUpMocks() {
@@ -54,10 +53,11 @@ class AuthControllerTest {
         Mockito.when(jwtTokenProvider.resolveToken(Mockito.any())).thenReturn(token);
         Mockito.when(jwtTokenProvider.validateToken(token)).thenReturn(true);
         Mockito.when(jwtTokenProvider.getAuthentication(token)).thenReturn(
-                new UsernamePasswordAuthenticationToken(authDto.getLogin(), authDto.getPassword())
-        );
+                new UsernamePasswordAuthenticationToken(authDto.getLogin(), "1111"));
         Mockito.when(userRepository.findByLogin(Mockito.any())).thenReturn(
-                new User(1L, authDto.getLogin(), "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu", "bob", "", Role.USER, Status.ACTIVE)
+                new User(1L, authDto.getLogin(),
+                        authDto.getPassword(),
+                        "bob", "", Role.USER, Status.ACTIVE)
         );
     }
 
@@ -81,4 +81,5 @@ class AuthControllerTest {
         ).andDo(print()).andExpect(status().isOk());
     }
 }
+
 

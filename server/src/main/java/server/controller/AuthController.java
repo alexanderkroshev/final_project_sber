@@ -14,7 +14,7 @@ import server.service.AuthService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@Slf4j
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/v1/auth")
