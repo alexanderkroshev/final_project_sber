@@ -21,13 +21,12 @@ public class CardService {
         return cardRepository.findByLogin(cardNumber).orElseThrow(CardNotFoundException::new);
     }
 
-//    public boolean saveCard(Card card) {
-//        return cardRepository.saveCard(card);
-//    }
+    public void saveCard(String cardNumber, String cardPassword, Long userId) {
+        cardRepository.saveCard(cardNumber, cardPassword, userId);
+    }
 
     public List<UserCardDto> findUserCards(Long userId) {
         return cardRepository.findUserCards(userId);
-        //TODO UserCardsDto
     }
 }
 

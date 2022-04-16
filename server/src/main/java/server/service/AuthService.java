@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AuthService {
     private AuthenticationManager authManager;
     private CardService cardService;
-    private UserRepository userRepository;//TODO userService
+    private UserService userService;//TODO userService
     private JwtTokenProvider jwtTokenProvider;
 
     public ResponseEntity<TokenDto> login(AuthDto authDto) {
@@ -33,7 +33,7 @@ public class AuthService {
         if (type.equals(Type.CARD))
             basicModel = cardService.findByLogin(login);
         else
-            basicModel = userRepository.findByLogin(login);
+            basicModel = userService.findByLogin(login);
         authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(login, authDto.getPassword())
         );

@@ -22,6 +22,7 @@ import server.auth.jwt.JwtTokenProvider;
 import server.model.User;
 import server.repository.UserRepository;
 import server.service.AuthService;
+import server.service.UserService;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -36,7 +37,7 @@ class AuthControllerTest {
     @MockBean
     private JwtTokenProvider jwtTokenProvider;
     @MockBean
-    private UserRepository userRepository;
+    private UserService userService;
 
     private String token = "token_123";
 
@@ -56,7 +57,7 @@ class AuthControllerTest {
         Mockito.when(jwtTokenProvider.getAuthentication(token)).thenReturn(
                 new UsernamePasswordAuthenticationToken(authDto.getLogin(), authDto.getPassword())
         );
-        Mockito.when(userRepository.findByLogin(Mockito.any())).thenReturn(
+        Mockito.when(userService.findByLogin(Mockito.any())).thenReturn(
                 new User(1L, authDto.getLogin(), "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu", "bob", "", Role.USER, Status.ACTIVE)
         );
     }

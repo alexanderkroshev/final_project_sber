@@ -14,14 +14,14 @@ public class Card implements BasicAuthModel {
     @Id
     private Long id;
 
-    //@Getter(AccessLevel.NONE)
+    //@Getter(AccessLevel.NONE)//TODO
     private String cardNumber;
     @Override
     public String getLogin() {
         return cardNumber;
     }
 
-    //@Getter(AccessLevel.NONE)
+    //@Getter(AccessLevel.NONE)//TODO
     private String cardPassword;
     @Override
     public String getPassword() {

@@ -1,19 +1,10 @@
 package server.repository;
 
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
-
-import org.springframework.transaction.annotation.Transactional;
-import server.dto.CardDto;
 import server.dto.UserCardDto;
-import server.exception.CardNotFoundException;
 import server.model.Card;
 
 import java.util.List;
@@ -33,8 +24,20 @@ public interface CardRepository extends CrudRepository<Card, Long> {
     List<UserCardDto> findUserCards(@Param("user_id") Long userId);
     //TODO UserCardDto
 
+    @Modifying
+    @Query("insert into card(card_number, card_password, user_id)" +
+            "values (:card_number,:card_password, :user_id)")
+    void saveCard(
+            @Param("card_number") String cardNumber,
+            @Param("card_password") String cardPassword,
+            @Param("user_id") Long id
+    );
 
 
+    //TODO UserCardDto
+
+
+//TODO
     /*
     private JdbcTemplate jdbcTemplate;
 
