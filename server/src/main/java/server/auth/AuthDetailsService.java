@@ -9,7 +9,7 @@ import server.model.AuthModel;
 import server.service.CardService;
 import server.service.UserService;
 
-@Service("AuthDetailsService")
+@Service
 @AllArgsConstructor
 public class AuthDetailsService implements UserDetailsService  {
     private CardService cardService;
