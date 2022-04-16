@@ -3,7 +3,7 @@ package client.controller;
 import client.service.AuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import request.LoginRequest;
+import client.request.LoginRequest;
 
 @RestController
 @AllArgsConstructor

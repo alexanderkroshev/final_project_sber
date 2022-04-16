@@ -29,11 +29,9 @@ class CardControllerTest {
     @Test
     void cardBalance() throws Exception {
         Mockito.when(cardService.getBalance()).thenReturn(new BalanceDto(new BigDecimal(100)));
-        mockMvc.perform(
-                        get("/cards/balance")
-                                .contentType(MediaType.APPLICATION_JSON)
-                )
-                .andExpect(status().isOk())
+        mockMvc.perform(get("/cards/balance")
+                        .contentType(MediaType.APPLICATION_JSON)
+                ).andExpect(status().isOk())
                 .andExpect(jsonPath("$.balance").value(100));
     }
 }

@@ -10,18 +10,16 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Card implements BasicAuthModel {
+public class Card implements AuthModel {
     @Id
     private Long id;
 
-    //@Getter(AccessLevel.NONE)//TODO
     private String cardNumber;
     @Override
     public String getLogin() {
         return cardNumber;
     }
 
-    //@Getter(AccessLevel.NONE)//TODO
     private String cardPassword;
     @Override
     public String getPassword() {

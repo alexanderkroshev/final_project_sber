@@ -5,11 +5,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import server.model.BasicAuthModel;
+
+import server.model.AuthModel;
 import server.service.CardService;
 import server.service.UserService;
 
-@Service("AuthDetailsService")
+@Service
 @AllArgsConstructor
 public class AuthDetailsService implements UserDetailsService  {
     private CardService cardService;
@@ -17,7 +18,7 @@ public class AuthDetailsService implements UserDetailsService  {
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        BasicAuthModel model;
+        AuthModel model;
         if (login.matches("[0-9]+"))
             model = cardService.findByLogin(login);
         else

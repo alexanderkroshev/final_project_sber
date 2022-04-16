@@ -25,11 +25,6 @@ class CardRepositoryTest {
         Assertions.assertEquals(card1.getLogin(), card2.getLogin());
     }
 
-//    @Test //TODO ?
-//    void findByCardNumberFailed() {
-//        Assertions.assertThrows(CardNotFoundException.class, () -> cardRepository.findByLogin("11133"));
-//    }
-
     @Test
     void saveCard() {
         String cardNumber = "1212232343";

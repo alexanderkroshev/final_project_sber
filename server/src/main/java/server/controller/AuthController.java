@@ -3,7 +3,6 @@ package server.controller;
 import common.dto.AuthDto;
 import common.dto.TokenDto;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +13,6 @@ import server.service.AuthService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@Slf4j
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/v1/auth")
@@ -28,6 +26,6 @@ public class AuthController {
 
     @PostMapping("/logout")
     public void logout(HttpServletRequest request, HttpServletResponse response) {
-      authService.logout(request, response);
+        authService.logout(request, response);
     }
 }

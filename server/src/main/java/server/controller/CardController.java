@@ -29,13 +29,14 @@ public class CardController {
         return new BalanceDto(card.getBalance());
     }
 
-    @PostMapping("/create{card")
+    @PostMapping("/create")
     @PreAuthorize("hasAuthority('developers:write')")
-    public void saveCard(
-            @PathVariable String cardNumber,
-            @PathVariable String cardPassword,
-            @PathVariable Long userId) {
-        cardService.saveCard(cardNumber, cardPassword, userId);
+    public void saveCard(@RequestBody Card card) {
+        cardService.saveCard(
+                card.getLogin(),
+                card.getPassword(),
+                card.getUserId()
+        );
     }
 
     @GetMapping()
