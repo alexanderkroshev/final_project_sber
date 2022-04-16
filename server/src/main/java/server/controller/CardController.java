@@ -29,11 +29,11 @@ public class CardController {
         return new BalanceDto(card.getBalance());
     }
 
-    @PostMapping("/create")
-    @PreAuthorize("hasAuthority('developers:write')")
-    public boolean saveCard(@RequestBody Card card) {
-        return cardService.saveCard(card);
-    }
+//    @PostMapping("/create")
+//    @PreAuthorize("hasAuthority('developers:write')")
+//    public boolean saveCard(@RequestBody Card card) {
+//        return cardService.saveCard(card);
+//    }
 
     @GetMapping()
     @PreAuthorize("hasAuthority('developers:read')")

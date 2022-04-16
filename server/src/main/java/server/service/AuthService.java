@@ -22,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 @AllArgsConstructor
 public class AuthService {
     private AuthenticationManager authManager;
-    private CardRepository cardRepository;
-    private UserRepository userRepository;
+    private CardService cardService;
+    private UserRepository userRepository;//TODO userService
     private JwtTokenProvider jwtTokenProvider;
 
     public ResponseEntity<TokenDto> login(AuthDto authDto) {
@@ -31,7 +31,7 @@ public class AuthService {
         Type type = authDto.getType();
         String login = authDto.getLogin();
         if (type.equals(Type.CARD))
-            basicModel = cardRepository.findByLogin(login);
+            basicModel = cardService.findByLogin(login);
         else
             basicModel = userRepository.findByLogin(login);
         authManager.authenticate(

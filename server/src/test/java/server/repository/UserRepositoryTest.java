@@ -25,15 +25,15 @@ class UserRepositoryTest {
         Assertions.assertThrows(UserNotFoundException.class, () -> userRepository.findByLogin("Bob_2"));
     }
 
-    @Test
-    void saveUser() {
-        User user1 = new User();
-        user1.setLogin("test");
-        user1.setPassword("1111");
-        user1.setName("test");
-        user1.setSurname("test");
-        userRepository.saveUser(user1);
-        User user2 = userRepository.findByLogin("test");
-        Assertions.assertEquals(user1.getLogin(), user2.getLogin());
-    }
+//    @Test
+//    void saveUser() {
+//        User user1 = new User();
+//        user1.setLogin("test");
+//        user1.setPassword("1111");
+//        user1.setName("test");
+//        user1.setSurname("test");
+//        userRepository.saveUser(user1);
+//        User user2 = userRepository.findByLogin("test");
+//        Assertions.assertEquals(user1.getLogin(), user2.getLogin());
+//    }
 }

@@ -15,9 +15,9 @@ import server.service.UserService;
 public class UserController {
     private UserService userService;
 
-    @PostMapping("/create")
-    @PreAuthorize("hasAuthority('developers:write')")
-    public void saveUser(@RequestBody User user) {
-        userService.saveUser(user);
-    }
+//    @PostMapping("/create")
+//    @PreAuthorize("hasAuthority('developers:write')")
+//    public void saveUser(@RequestBody User user) {
+//        userService.saveUser(user);
+//    }
 }
