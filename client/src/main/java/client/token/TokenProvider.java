@@ -2,7 +2,6 @@ package client.token;
 
 import client.exception.AuthException;
 import client.exception.TokenNotFoundException;
-import common.Type;
 import common.dto.AuthDto;
 import common.dto.TokenDto;
 import lombok.Data;
@@ -32,7 +31,7 @@ public class TokenProvider {
 
     public void login(String number, String password) {
         try {
-            AuthDto auth = new AuthDto(number, password, Type.CARD);
+            AuthDto auth = new AuthDto(number, password);
             HttpEntity<AuthDto> authEntity = new HttpEntity<>(auth);
             ResponseEntity<TokenDto> response = restTemplate.exchange(AUTHORIZATION_URL,
                     HttpMethod.POST, authEntity, TokenDto.class);

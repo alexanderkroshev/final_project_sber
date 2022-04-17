@@ -1,6 +1,5 @@
 package server.controller.card;
 
-import common.Type;
 import common.dto.AuthDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,6 @@ import server.dto.UserCardDto;
 import server.model.Card;
 import server.model.User;
 import server.repository.CardRepository;
-
 import server.service.CardService;
 import server.service.UserService;
 
@@ -47,12 +45,12 @@ class CardControllerTest {
     private UserService userService;
 
     private final AuthDto authCardDto = new AuthDto("12345678",
-            "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu",
-            Type.PERSON);
+            "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu"
+    );
 
     private final AuthDto authUserDto = new AuthDto("user",
-            "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu",
-            Type.PERSON);
+            "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu"
+            );
 
     private final String token = "token_123";
 

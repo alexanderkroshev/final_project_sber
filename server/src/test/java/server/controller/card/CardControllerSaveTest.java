@@ -1,7 +1,6 @@
 package server.controller.card;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import common.Type;
 import common.dto.AuthDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,8 +39,7 @@ class CardControllerSaveTest {
 
     private final AuthDto authAdminDto = new AuthDto(
             "admin",
-            "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu",
-            Type.PERSON
+            "$2a$12$L53hZMAEtZqo2IBBqnxTfOIYrX9abonFc6D3h1g7.BLz2sfzHVHuu"
     );
 
     private final String token = "token_123";

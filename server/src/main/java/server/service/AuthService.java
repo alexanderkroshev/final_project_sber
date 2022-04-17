@@ -2,7 +2,6 @@ package server.service;
 
 import common.dto.AuthDto;
 import common.dto.TokenDto;
-import common.Type;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -27,15 +26,13 @@ public class AuthService {
 
     public ResponseEntity<TokenDto> login(AuthDto authDto) {
         AuthModel authModel;
-        Type type = authDto.getType();
         String login = authDto.getLogin();
-        if (type.equals(Type.CARD))
+        if (login.matches("[0-9]+"))
             authModel = cardService.findByLogin(login);
         else
             authModel = userService.findByLogin(login);
         authManager.authenticate(
-                new UsernamePasswordAuthenticationToken(login, authDto.getPassword())
-        );
+                new UsernamePasswordAuthenticationToken(login, authDto.getPassword()));
         String token = jwtTokenProvider.createToken(login, authModel.getRole().name());
         return ResponseEntity.ok(new TokenDto(token));
     }

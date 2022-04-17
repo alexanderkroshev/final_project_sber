@@ -1,7 +1,6 @@
 package server.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import common.Type;
 import common.dto.AuthDto;
 import common.dto.TokenDto;
 import lombok.SneakyThrows;
@@ -46,7 +45,7 @@ class AuthControllerTest {
     @Autowired
     private ObjectMapper mapper;
 
-    private AuthDto authDto = new AuthDto("bob", "1111", Type.PERSON);
+    private AuthDto authDto = new AuthDto("bob", "1111");
 
     private final User user = new User(
             1L,

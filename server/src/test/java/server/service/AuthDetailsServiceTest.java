@@ -1,6 +1,5 @@
 package server.service;
 
-import common.Type;
 import common.dto.AuthDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,7 +16,7 @@ class AuthDetailsServiceTest {
 
     @Test
     void loginSucceed() {
-        AuthDto authDto = new AuthDto("12345678", "1111", Type.CARD);
+        AuthDto authDto = new AuthDto("12345678", "1111");
         String response = authService.login(authDto).getBody().getToken();
         Assertions.assertNotNull(response);
     }
@@ -25,7 +24,7 @@ class AuthDetailsServiceTest {
     @Test
     void cardNotFound() {
         Assertions.assertThrows(CardNotFoundException.class, () -> {
-            AuthDto authDto = new AuthDto("1", "1111", Type.CARD);
+            AuthDto authDto = new AuthDto("1", "1111");
             authService.login(authDto).getBody().getToken();
         });
     }
@@ -33,7 +32,7 @@ class AuthDetailsServiceTest {
     @Test
     void invalidPassword() {
         Assertions.assertThrows(BadCredentialsException.class, () -> {
-            AuthDto authDto = new AuthDto("12345678", "3424234234", Type.CARD);
+            AuthDto authDto = new AuthDto("12345678", "3424234234");
             authService.login(authDto).getBody().getToken();
         });
     }
@@ -41,7 +40,7 @@ class AuthDetailsServiceTest {
     @Test
     void blockedCard() {
         Assertions.assertThrows(LockedException.class, () -> {
-            AuthDto authDto = new AuthDto("78861357", "1111", Type.CARD);
+            AuthDto authDto = new AuthDto("78861357", "1111");
             authService.login(authDto).getBody().getToken();
         });
     }
