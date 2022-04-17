@@ -12,8 +12,8 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 @Getter
 public enum Role {
-    USER(Stream.of(Permission.DEVELOPERS_READ).collect(Collectors.toSet())),
-    ADMIN(Stream.of(Permission.DEVELOPERS_WRITE).collect(Collectors.toSet()));
+    USER(Stream.of(Permission.READ).collect(Collectors.toSet())),
+    ADMIN(Stream.of(Permission.WRITE).collect(Collectors.toSet()));
 
     private Set<Permission> permissions;
 

@@ -22,7 +22,7 @@ public class CardController {
     private UserService userService;
 
     @GetMapping("/balance")
-    @PreAuthorize("hasAuthority('developers:read')")
+    @PreAuthorize("hasAuthority('read')")
     public BalanceDto getBalance() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Card card = cardService.findByLogin(authentication.getName());
@@ -30,7 +30,7 @@ public class CardController {
     }
 
     @PostMapping("/create")
-    @PreAuthorize("hasAuthority('developers:write')")
+    @PreAuthorize("hasAuthority('write')")
     public void saveCard(@RequestBody Card card) {
         cardService.saveCard(
                 card.getLogin(),
@@ -40,7 +40,7 @@ public class CardController {
     }
 
     @GetMapping()
-    @PreAuthorize("hasAuthority('developers:read')")
+    @PreAuthorize("hasAuthority('read')")
     public List<UserCardDto> findUserCards() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findByLogin(authentication.getName());

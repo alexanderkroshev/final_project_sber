@@ -17,7 +17,7 @@ class CardRepositoryTest {
     private CardRepository cardRepository;
 
     @Test
-    void findByCardNumberSucceed() {
+    void findByCardNumber() {
         Card card1 = new Card();
         card1.setCardNumber("12345242");
         Card card2 = cardRepository.findByLogin("12345242")

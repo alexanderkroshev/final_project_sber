@@ -5,14 +5,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
 import server.model.AuthModel;
 import server.service.CardService;
 import server.service.UserService;
 
 @Service
 @AllArgsConstructor
-public class AuthDetailsService implements UserDetailsService  {
+public class AuthDetailsService implements UserDetailsService {
     private CardService cardService;
     private UserService userService;
 

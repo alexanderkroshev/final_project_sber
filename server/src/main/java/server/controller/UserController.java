@@ -14,7 +14,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/create")
-    @PreAuthorize("hasAuthority('developers:write')")
+    @PreAuthorize("hasAuthority('write')")
     public void saveUser(@RequestBody User user) {
         userService.saveUser(
                 user.getLogin(),
