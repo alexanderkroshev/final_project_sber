@@ -40,8 +40,6 @@ class CardControllerTest {
     @MockBean
     private JwtTokenProvider jwtTokenProvider;
     @MockBean
-    private CardRepository cardRepository;
-    @MockBean
     private UserService userService;
 
     private final AuthDto authCardDto = new AuthDto("12345678",
