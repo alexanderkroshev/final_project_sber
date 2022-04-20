@@ -20,7 +20,7 @@ https://github.com/alexanderkroshev/final_project_sber/tree/merge_client_server/
 
 ## Для запуска проекта необходимо:
 ```bash
-    >>./mvn clean install spring-boot:build-image -
-    >>./docker run -p 9091:9091 docker.io/library/client:2.4.5
-    >>./docker run -p 8080:8080 docker.io/library/server:2.4.5
+    >>mvn clean install spring-boot:build-image -DskipTests
+    >>docker run -p 9091:9091 docker.io/library/client:2.4.5
+    >>docker run -p 8080:8080 docker.io/library/server:2.4.5
 ```

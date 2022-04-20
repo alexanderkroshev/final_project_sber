@@ -21,7 +21,7 @@ public class UserService {
     public void saveUser(String login, String password, String name, String surname) {
         if (login.matches("[0-9]+"))
             throw new UserSaveException("user login should not contain only numbers");
-        if (login == null || password == null || name == null || surname == null)
+        if ( password == null || name == null || surname == null)
             throw new UserSaveException("user should not have null values");
         try {
             userRepository.saveUser(login, password, name, surname);

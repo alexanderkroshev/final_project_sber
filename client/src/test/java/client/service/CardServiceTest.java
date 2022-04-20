@@ -8,9 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,7 +20,6 @@ class CardServiceTest {
     private TokenProvider tokenProvider;
     @Mock
     private RestTemplate restTemplate;
-    @Spy
     @InjectMocks
     private CardService cardService;
 
