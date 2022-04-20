@@ -1,12 +1,14 @@
 # ATM-server graduation project
 ## Cтек проекта:
+ 1) java 8
+ 2) spring boot,
+ 3) spring mvc,
+ 4) spring data jdbc,
+ 5) spring security + JWT,
+ 6) H2 БД,
+ 7) docker;
+ 8) JUnit+ Mockito
 
- 1) spring boot,
- 2) spring mvc,
- 3) spring data jdbc,
- 4) spring security + JWT,
- 5) H2 БД,
- 6) docker;
 
 ## Модули проекта:
  1) server -  серверная часть, которая отвечает за хранение пользователей и балансов карт;
