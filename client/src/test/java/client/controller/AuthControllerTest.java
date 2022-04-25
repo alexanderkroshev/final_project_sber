@@ -1,8 +1,8 @@
 package client.controller;
 
-import client.request.LoginRequest;
 import client.service.AuthService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import common.dto.AuthDto;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +26,8 @@ class AuthControllerTest {
     @Test
     @SneakyThrows
     void login() {
-        LoginRequest loginRequest = new LoginRequest("12345829896782", "1111");
-        String json = new ObjectMapper().writeValueAsString(loginRequest);
+        AuthDto authDto = new AuthDto("12345829896782", "1111");
+        String json = new ObjectMapper().writeValueAsString(authDto);
         mockMvc.perform(post("/cards/login")
                 .content(json)
                 .contentType(MediaType.APPLICATION_JSON)
