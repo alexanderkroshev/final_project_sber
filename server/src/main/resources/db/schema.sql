@@ -1,11 +1,17 @@
-drop table card IF EXISTS;
+drop table client IF EXISTS;
+drop table legal_entity IF EXISTS;
 
-create TABLE card (
-  id BIGINT IDENTITY PRIMARY KEY,
-  card_number VARCHAR(20) not null unique,
-  card_password VARCHAR(100) not null,
-  balance DECIMAL not null,
-  card_role    VARCHAR(20) DEFAULT 'USER',
-  status    VARCHAR(20) DEFAULT 'ACTIVE'
+create TABLE client (
+  client_id BIGINT IDENTITY PRIMARY KEY,
+  client_type VARCHAR(20) not null
 );
+
+create TABLE legal_entity (
+  id BIGINT IDENTITY PRIMARY KEY,
+  full_name varchar(30),
+  balance DECIMAL not null,
+  dt_reg_end date
+);
+
+
 
